@@ -12,18 +12,16 @@ find_latest_python3() {
 append_to_zshrc 'eval "$(pyenv init - --no-rehash)"' 1
 eval "$(pyenv init -)"
 
-PYTHON_OPTS="CFLAGS=-I/usr/local/opt/openssl/include LDFLAGS=-L/usr/local/opt/openssl/lib"
-
 python2_version="$(find_latest_python2)"
 if ! pyenv versions | grep -Fq "$python2_version"; then
-  "$PYTHON_OPTS" pyenv install -s "$python2_version"
+  CFLAGS=-I/usr/local/opt/openssl/include LDFLAGS=-L/usr/local/opt/openssl/lib pyenv install -s "$python2_version"
 fi
 pyenv shell "$python2_version"
 pip install -q virtualenvwrapper
 
 python3_version="$(find_latest_python3)"
 if ! pyenv versions | grep -Fq "$python2_version"; then
-  "$PYTHON_OPTS" pyenv install -s "$python3_version"
+  CFLAGS=-I/usr/local/opt/openssl/include LDFLAGS=-L/usr/local/opt/openssl/lib pyenv install -s "$python3_version"
 fi
 pyenv shell "$python3_version"
 pip install -q virtualenvwrapper
