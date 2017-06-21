@@ -2,7 +2,7 @@
 
 Laptop is a script to set up macOS into an awesome development machine. Forked from [thoughtbot/laptop](https://github.com/thoughtbot/laptop).
 
-It can be run multiple times on the same machine safely. It installs, upgrades, or skips packages based on what is already installed on the machine. The repository tracks the two latest versions of macOS which are currently El Capitan (10.11) and Sierra (10.12). Older versions may work but aren't regularly tested.
+It can be run multiple times on the same machine safely. It installs, upgrades, or skips packages based on what is already installed on the machine.
 
 ## Install
 
@@ -11,6 +11,8 @@ Review the [mac](https://github.com/WPMedia/laptop/blob/master/mac) script and t
 ```sh
 curl -fsS https://raw.githubusercontent.com/WPMedia/laptop/master/mac | sh | tee ~/laptop.log
 ```
+
+The repository tracks the two latest versions of macOS which are currently El Capitan (10.11) and Sierra (10.12). Older versions may work but aren't regularly tested.
 
 ## Development
 
