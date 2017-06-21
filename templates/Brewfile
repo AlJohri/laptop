@@ -30,6 +30,9 @@ brew 'redis', restart_service: :changed
 
 # languages
 brew 'go'
+brew 'sbt'
+brew 'maven'
+brew 'gradle'
 
 brew 'python'
 brew 'python3'
