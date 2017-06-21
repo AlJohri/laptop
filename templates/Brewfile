@@ -19,6 +19,7 @@ brew 'tree'
 brew 'jsonpp'
 brew 'docker-clean'
 brew 'openconnect'
+brew 'shellcheck'
 brew 'zsh'
 
 # databases, key value stores
