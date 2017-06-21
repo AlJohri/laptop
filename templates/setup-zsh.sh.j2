@@ -10,7 +10,7 @@ fi
 REALSHELL=$(dscl . -read "/Users/$USER/" UserShell | awk '{ print $2 }')
 if [ "$REALSHELL" != "$shell_path" ]; then
   fancy_echo "Changing your shell from $SHELL to $shell_path ..."
-  chsh -s "$shell_path"
+  sudo chsh -s "$shell_path"
 fi
 
 if [ ! -f "$HOME/.zshrc" ]; then
