@@ -10,7 +10,13 @@ append_to_zshrc 'eval "$(rbenv init - --no-rehash)"' 1
 eval "$(rbenv init -)"
 
 if ! rbenv versions | grep -Fq "$ruby_version"; then
-  RUBY_CONFIGURE_OPTS=--with-openssl-dir=/usr/local/opt/openssl rbenv install -s "$ruby_version"
+  if [ "$CI" == "true" ]; then
+    wget "http://rubies.travis-ci.org/osx/10.12/x86_64/ruby-$ruby_version.tar.bz2"
+    tar -xf "ruby-$ruby_version.tar.bz2"
+    mv "ruby-$ruby_version" "$HOME/.rbenv/versions/$ruby_version"
+  else
+    RUBY_CONFIGURE_OPTS=--with-openssl-dir=/usr/local/opt/openssl rbenv install -s "$ruby_version"
+  fi
 fi
 
 rbenv global "$ruby_version"

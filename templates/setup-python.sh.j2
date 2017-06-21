@@ -14,6 +14,7 @@ eval "$(pyenv init -)"
 
 python2_version="$(find_latest_python2)"
 if ! pyenv versions | grep -Fq "$python2_version"; then
+  fancy_echo "Installing Python $python2_version ..."
   CFLAGS=-I/usr/local/opt/openssl/include LDFLAGS=-L/usr/local/opt/openssl/lib pyenv install -s "$python2_version"
 fi
 pyenv shell "$python2_version"
@@ -21,6 +22,7 @@ pip install -q virtualenvwrapper
 
 python3_version="$(find_latest_python3)"
 if ! pyenv versions | grep -Fq "$python3_version"; then
+  fancy_echo "Installing Python $python3_version ..."
   CFLAGS=-I/usr/local/opt/openssl/include LDFLAGS=-L/usr/local/opt/openssl/lib pyenv install -s "$python3_version"
 fi
 pyenv shell "$python3_version"
