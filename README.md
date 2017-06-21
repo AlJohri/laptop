@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/WPMedia/laptop.svg?branch=master)](https://travis-ci.org/WPMedia/laptop)
+
 # laptop
 
 Laptop is a script to set up macOS into an awesome development machine. Forked from [thoughtbot/laptop](https://github.com/thoughtbot/laptop).
