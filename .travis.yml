@@ -1,6 +1,9 @@
 os: osx
 osx_image: xcode8.3
 
+install:
+  - brew install shellcheck
+
 script:
   - shellcheck mac -e SC2039
   - ./mac
