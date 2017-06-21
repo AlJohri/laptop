@@ -25,3 +25,13 @@ make
 ```
 
 Syntax Highlighting for `.sh.j2` files: https://atom.io/packages/atom-jinja2
+
+## Features
+
+- Changes shell to zsh over bash.
+- Installs docker.
+- Set up commonly used programming languages such as python, ruby, node, go, java, and scala.
+- Prefers [pyenv](https://github.com/pyenv/pyenv), [rbenv](https://github.com/rbenv/rbenv), and [nodenv](https://github.com/nodenv/nodenv) to manage multiple language versions.
+- Sets up commonly used databases and key value stores such as mongodb, mysql, postgresql, and redis.
+- Sets up commonly used command line programs such as wget, jq, tree, etc.
+- Sets up commonly used GUI programs such as Sublime Text, Atom, Chrome and Slack.
