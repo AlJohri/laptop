@@ -1,15 +1,12 @@
-language: bash
-sudo: false
+os: osx
+osx_image: xcode8.3
 
-addons:
-  apt:
-    sources:
-    - debian-sid # Get shellcheck from the Debian repo
-    packages:
-    - shellcheck
+install:
+  - brew install shellcheck
 
 script:
   - shellcheck mac -e SC2039
+  - ./mac
 
 matrix:
   fast_finish: true
