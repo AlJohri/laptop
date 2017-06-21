@@ -6,7 +6,7 @@ It can be run multiple times on the same machine safely. It installs, upgrades, 
 
 ## Install
 
-Review the [mac](https://github.com/WPMedia/laptop/blob/master/mac) script and then run the following command:
+Review the [Brewfile](https://github.com/WPMedia/laptop/blob/master/templates/Brewfile) and [mac](https://github.com/WPMedia/laptop/blob/master/mac) script. Then run the following command:
 
 ```sh
 curl -fsS https://raw.githubusercontent.com/WPMedia/laptop/master/mac | sh | tee ~/laptop.log
