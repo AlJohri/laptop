@@ -18,7 +18,10 @@ brew bundle --file=- <<EOF
 {% include 'Brewfile' %}
 EOF
 
-{% include 'setup-zsh.sh.j2' %}
+if [ "$CI" != "CI" ]; then
+    {% include 'setup-zsh.sh.j2' %}
+fi
+
 {% include 'setup-ruby.sh.j2' %}
 {% include 'setup-python.sh.j2' %}
 {% include 'setup-node.sh.j2' %}

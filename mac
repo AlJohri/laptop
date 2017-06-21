@@ -88,6 +88,7 @@ brew 'tree'
 brew 'jsonpp'
 brew 'docker-clean'
 brew 'openconnect'
+brew 'shellcheck'
 brew 'zsh'
 
 # databases, key value stores
@@ -98,6 +99,9 @@ brew 'redis', restart_service: :changed
 
 # languages
 brew 'go'
+brew 'sbt'
+brew 'maven'
+brew 'gradle'
 
 brew 'python'
 brew 'python3'
@@ -123,6 +127,7 @@ cask 'slack' unless File.directory?("/Applications/Slack.app")
 cask 'keepingyouawake'
 EOF
 
+if [ "$CI" != "CI" ]; then
 fancy_echo "Configuring Zsh ..."
 
 shell_path=/usr/local/bin/zsh
@@ -135,7 +140,7 @@ fi
 REALSHELL=$(dscl . -read "/Users/$USER/" UserShell | awk '{ print $2 }')
 if [ "$REALSHELL" != "$shell_path" ]; then
   fancy_echo "Changing your shell from $SHELL to $shell_path ..."
-  chsh -s "$shell_path"
+  sudo chsh -s "$shell_path" "$USER"
 fi
 
 if [ ! -f "$HOME/.zshrc" ]; then
@@ -143,6 +148,8 @@ if [ ! -f "$HOME/.zshrc" ]; then
 fi
 
 fancy_echo "Done Configuring Zsh!"
+fi
+
 fancy_echo "Configuring Ruby ..."
 
 find_latest_ruby() {
