@@ -1,0 +1,54 @@
+tap 'homebrew/services'
+tap 'homebrew/science'
+tap 'homebrew/dupes'
+tap 'caskroom/cask'
+tap 'caskroom/versions'
+tap 'nodenv/nodenv'
+
+# general dependencies
+brew 'openssl'
+cask 'java' unless system '/usr/libexec/java_home --failfast'
+cask 'xquartz'
+
+# cli tools
+brew 'awscli'
+brew 'wget'
+brew 'hub'
+brew 'jq'
+brew 'tree'
+brew 'jsonpp'
+brew 'docker-clean'
+brew 'openconnect'
+brew 'zsh'
+
+# databases, key value stores
+brew 'mongodb', restart_service: :changed
+brew 'mysql', restart_service: :changed
+brew 'postgresql', restart_service: :changed
+brew 'redis', restart_service: :changed
+
+# languages
+brew 'go'
+
+brew 'python'
+brew 'python3'
+brew 'pyenv'
+
+brew 'node'
+brew 'node-build'
+brew 'nodenv'
+brew 'yarn'
+
+brew 'ruby'
+brew 'ruby-build'
+brew 'rbenv'
+
+# dev gui
+cask 'docker'
+cask 'sublime-text'
+cask 'atom'
+
+# non-dev gui
+cask 'google-chrome-beta' unless File.directory?("/Applications/Google Chrome.app")
+cask 'slack' unless File.directory?("/Applications/Slack.app")
+cask 'keepingyouawake'

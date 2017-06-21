@@ -1,0 +1,26 @@
+#!/bin/sh
+
+# Welcome to the Washington Post laptop script!
+# Be prepared to turn your laptop (or desktop, no haters here)
+# into an awesome development machine.
+
+set -e
+
+# shellcheck disable=SC2154
+trap 'ret=$?; test $ret -ne 0 && printf "failed\n\n" >&2; exit $ret' EXIT
+
+{% include 'functions.sh.j2' %}
+{% include 'setup-homebrew.sh.j2' %}
+
+fancy_echo "Updating Homebrew formulae ..."
+brew update
+brew bundle --file=- <<EOF
+{% include 'Brewfile' %}
+EOF
+
+{% include 'setup-zsh.sh.j2' %}
+{% include 'setup-ruby.sh.j2' %}
+{% include 'setup-python.sh.j2' %}
+{% include 'setup-node.sh.j2' %}
+
+fancy_echo "Done Configuring Laptop!"
