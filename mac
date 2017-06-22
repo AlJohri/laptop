@@ -76,20 +76,17 @@ tap 'nodenv/nodenv'
 
 # general dependencies
 brew 'openssl'
-cask 'java' unless system '/usr/libexec/java_home --failfast'
-cask 'xquartz'
+cask 'java' unless system '/usr/libexec/java_home --failfast > /dev/null'
 
 # cli tools
-brew 'awscli'
-brew 'wget'
-brew 'hub'
-brew 'jq'
-brew 'tree'
-brew 'jsonpp'
-brew 'docker-clean'
-brew 'openconnect'
-brew 'shellcheck'
-brew 'zsh'
+brew 'awscli' # aws command line tools
+brew 'wget' # super curl
+brew 'jq' # command line json processor
+brew 'tree' # recursive ls
+brew 'jsonpp' # pretty print json
+brew 'docker-clean' # clean dangling docker images
+brew 'openconnect' # command line vpn
+brew 'zsh' # better shell
 
 # databases, key value stores
 brew 'mongodb', restart_service: :changed
@@ -99,9 +96,10 @@ brew 'redis', restart_service: :changed
 
 # languages
 brew 'go'
-brew 'sbt'
-brew 'maven'
-brew 'gradle'
+brew 'maven' # java
+brew 'sbt' # scala
+brew 'leiningen' # clojure
+brew 'gradle' # java, groovy, scala, etc.
 
 brew 'python'
 brew 'python3'
@@ -110,21 +108,22 @@ brew 'pyenv'
 brew 'node'
 brew 'node-build'
 brew 'nodenv'
-brew 'yarn'
+brew 'yarn' # alternative to npm
 
 brew 'ruby'
 brew 'ruby-build'
 brew 'rbenv'
 
 # dev gui
-cask 'docker'
-cask 'sublime-text'
-cask 'atom'
+cask 'pritunl' unless File.directory?("/Applications/Pritunl.app")
+cask 'docker' unless File.directory?("/Applications/Docker.app")
+cask 'sublime-text' unless File.directory?("/Applications/Sublime Text.app")
+cask 'atom' unless File.directory?("/Applications/Atom.app")
 
 # non-dev gui
-cask 'google-chrome-beta' unless File.directory?("/Applications/Google Chrome.app")
 cask 'slack' unless File.directory?("/Applications/Slack.app")
-cask 'keepingyouawake'
+cask 'google-chrome-beta' unless File.directory?("/Applications/Google Chrome.app")
+cask 'keepingyouawake' unless File.directory?("/Applications/KeepingYouAwake.app")
 EOF
 
 fancy_echo "Configuring Zsh ..."
