@@ -97,6 +97,7 @@ brew 'redis', restart_service: :changed
 # languages
 brew 'go'
 brew 'maven' # java
+brew 'scala' # scala
 brew 'sbt' # scala
 brew 'leiningen' # clojure
 brew 'gradle' # java, groovy, scala, etc.
@@ -115,6 +116,7 @@ brew 'ruby-build'
 brew 'rbenv'
 
 # dev gui
+cask 'iterm2' unless File.directory?("/Applications/iTerm.app")
 cask 'pritunl' unless File.directory?("/Applications/Pritunl.app")
 cask 'docker' unless File.directory?("/Applications/Docker.app")
 cask 'sublime-text' unless File.directory?("/Applications/Sublime Text.app")
