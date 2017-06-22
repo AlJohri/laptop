@@ -46,6 +46,7 @@ brew 'ruby-build'
 brew 'rbenv'
 
 # dev gui
+cask 'pritunl' unless File.directory?("/Applications/Pritunl.app")
 cask 'docker' unless File.directory?("/Applications/Docker.app")
 cask 'sublime-text' unless File.directory?("/Applications/Sublime Text.app")
 cask 'atom' unless File.directory?("/Applications/Atom.app")
