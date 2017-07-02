@@ -35,7 +35,7 @@ We use [jinja2](http://jinja.pocoo.org/docs/2.9/) templates via the [yasha](http
 
 ```
 brew install shellcheck
-pip install git+https://github.com/AlJohri/yasha.git@keep-trailing-newline
+pip install --upgrade yasha
 make
 ```
 
