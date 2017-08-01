@@ -239,5 +239,9 @@ nodenv shell "$node_version"
 nodenv global "$node_version"
 
 fancy_echo "Done Configuring Node!"
+fancy_echo "Configuring Postgres ..."
+
+createuser --superuser --createdb --createrole --replication postgres
+createuser --superuser --createdb --createrole --replication root
 
 fancy_echo "Done Configuring Laptop!"
