@@ -8,9 +8,6 @@ find_latest_python3() {
   pyenv install -l | grep -v - | grep "  3." | tail -1 | sed -e 's/^ *//'
 }
 
-# envdir cannot be installed via pyenv. pyenv will alter the PATH at runtime
-/usr/local/bin/pip install -q envdir
-
 # shellcheck disable=SC2016
 append_to_zshrc 'eval "$(pyenv init - --no-rehash)"' 1
 eval "$(pyenv init -)"
@@ -21,7 +18,7 @@ if ! pyenv versions | grep -Fq "$python2_version"; then
   CFLAGS=-I/usr/local/opt/openssl/include LDFLAGS=-L/usr/local/opt/openssl/lib pyenv install -s "$python2_version"
 fi
 pyenv shell "$python2_version"
-pip install -q virtualenvwrapper
+pip install -q virtualenvwrapper envdir
 
 python3_version="$(find_latest_python3)"
 if ! pyenv versions | grep -Fq "$python3_version"; then
@@ -29,7 +26,7 @@ if ! pyenv versions | grep -Fq "$python3_version"; then
   CFLAGS=-I/usr/local/opt/openssl/include LDFLAGS=-L/usr/local/opt/openssl/lib pyenv install -s "$python3_version"
 fi
 pyenv shell "$python3_version"
-pip install -q virtualenvwrapper
+pip install -q virtualenvwrapper envdir
 
 pyenv global "$python3_version:$python2_version"
 
