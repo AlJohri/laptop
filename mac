@@ -161,6 +161,7 @@ eval "$(rbenv init -)"
 
 if ! rbenv versions | grep -Fq "$ruby_version"; then
   if [ "$CI" == "true" ]; then
+    ruby_version="2.4.1" # https://github.com/travis-ci/travis-ci/issues/8430
     wget "http://rubies.travis-ci.org/osx/10.12/x86_64/ruby-$ruby_version.tar.bz2"
     tar -xf "ruby-$ruby_version.tar.bz2"
     mv "ruby-$ruby_version" "$HOME/.rbenv/versions/$ruby_version"
@@ -197,7 +198,7 @@ if ! pyenv versions | grep -Fq "$python2_version"; then
   CFLAGS=-I/usr/local/opt/openssl/include LDFLAGS=-L/usr/local/opt/openssl/lib pyenv install -s "$python2_version"
 fi
 pyenv shell "$python2_version"
-pip install -q virtualenvwrapper envdir
+pip install -q pipenv virtualenvwrapper envdir
 
 python3_version="$(find_latest_python3)"
 if ! pyenv versions | grep -Fq "$python3_version"; then
@@ -205,7 +206,7 @@ if ! pyenv versions | grep -Fq "$python3_version"; then
   CFLAGS=-I/usr/local/opt/openssl/include LDFLAGS=-L/usr/local/opt/openssl/lib pyenv install -s "$python3_version"
 fi
 pyenv shell "$python3_version"
-pip install -q virtualenvwrapper envdir
+pip install -q pipenv virtualenvwrapper envdir
 
 pyenv global "$python3_version:$python2_version"
 
