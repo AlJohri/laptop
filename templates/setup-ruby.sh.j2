@@ -11,7 +11,7 @@ eval "$(rbenv init -)"
 
 if ! rbenv versions | grep -Fq "$ruby_version"; then
   if [ "$CI" == "true" ]; then
-    ruby_version="2.4.1" # https://github.com/travis-ci/travis-ci/issues/8430
+    ruby_version="2.5.1" # hardcode latest from http://rubies.travis-ci.org/
     wget "http://rubies.travis-ci.org/osx/10.12/x86_64/ruby-$ruby_version.tar.bz2"
     tar -xf "ruby-$ruby_version.tar.bz2"
     mv "ruby-$ruby_version" "$HOME/.rbenv/versions/$ruby_version"

@@ -18,7 +18,7 @@ if ! pyenv versions | grep -Fq "$python2_version"; then
   CFLAGS=-I/usr/local/opt/openssl/include LDFLAGS=-L/usr/local/opt/openssl/lib pyenv install -s "$python2_version"
 fi
 pyenv shell "$python2_version"
-pip install -q pipenv virtualenvwrapper envdir
+pip install -q pipenv envdir
 
 python3_version="$(find_latest_python3)"
 if ! pyenv versions | grep -Fq "$python3_version"; then
@@ -26,14 +26,8 @@ if ! pyenv versions | grep -Fq "$python3_version"; then
   CFLAGS=-I/usr/local/opt/openssl/include LDFLAGS=-L/usr/local/opt/openssl/lib pyenv install -s "$python3_version"
 fi
 pyenv shell "$python3_version"
-pip install -q pipenv virtualenvwrapper envdir
+pip install -q pipenv envdir
 
 pyenv global "$python3_version:$python2_version"
-
-# shellcheck disable=SC2016
-append_to_zshrc 'export VIRTUALENVWRAPPER_SCRIPT="$(pyenv which virtualenvwrapper.sh)"'
-
-# shellcheck disable=SC2016
-append_to_zshrc 'source "$(pyenv which virtualenvwrapper_lazy.sh)"'
 
 fancy_echo "Done Configuring Python!"
