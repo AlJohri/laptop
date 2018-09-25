@@ -23,8 +23,7 @@ See the [Brewfile](https://github.com/WPMedia/laptop/blob/master/templates/Brewf
 - Installs the homebrew package manager.
 - Changes shell to zsh over bash.
 - Installs Docker for Mac.
-- Set up commonly used programming languages such as python, ruby, node, go, java, and scala.
-- Prefers [pyenv](https://github.com/pyenv/pyenv), [rbenv](https://github.com/rbenv/rbenv), and [nodenv](https://github.com/nodenv/nodenv) to manage multiple language versions.
+- Set up commonly used programming languages python, ruby, node via [pyenv](https://github.com/pyenv/pyenv), [rbenv](https://github.com/rbenv/rbenv), and [nodenv](https://github.com/nodenv/nodenv) to handle multiple versions.
 - Sets up commonly used databases and key value stores such as mongodb, mysql, postgresql, and redis.
 - Sets up commonly used command line programs such as wget, jq, tree, etc.
 - Sets up commonly used GUI programs such as Sublime Text, Atom, Chrome and Slack.

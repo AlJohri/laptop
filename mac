@@ -68,8 +68,6 @@ fancy_echo "Updating Homebrew formulae ..."
 brew update
 brew bundle --file=- <<EOF
 tap 'homebrew/services'
-tap 'homebrew/science'
-tap 'homebrew/dupes'
 tap 'caskroom/cask'
 tap 'caskroom/versions'
 tap 'nodenv/nodenv'
@@ -85,7 +83,6 @@ brew 'jq' # command line json processor
 brew 'tree' # recursive ls
 brew 'jsonpp' # pretty print json
 brew 'docker-clean' # clean dangling docker images
-brew 'openconnect' # command line vpn
 brew 'zsh' # better shell
 
 # databases, key value stores
@@ -95,15 +92,7 @@ brew 'postgresql', restart_service: :changed
 brew 'redis', restart_service: :changed
 
 # languages
-brew 'go'
-brew 'maven' # java
-brew 'scala' # scala
-brew 'sbt' # scala
-brew 'leiningen' # clojure
-brew 'gradle' # java, groovy, scala, etc.
-
 brew 'python'
-brew 'python3'
 brew 'pyenv'
 
 brew 'node'
@@ -117,10 +106,9 @@ brew 'rbenv'
 
 # dev gui
 cask 'iterm2' unless File.directory?("/Applications/iTerm.app")
-cask 'pritunl' unless File.directory?("/Applications/Pritunl.app")
 cask 'docker' unless File.directory?("/Applications/Docker.app")
 cask 'sublime-text' unless File.directory?("/Applications/Sublime Text.app")
-cask 'atom' unless File.directory?("/Applications/Atom.app")
+cask 'visual-studio-code' unless File.directory?("/Applications/Visual Studio Code.app.app")
 
 # non-dev gui
 cask 'slack' unless File.directory?("/Applications/Slack.app")
