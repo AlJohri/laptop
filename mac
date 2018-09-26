@@ -66,7 +66,7 @@ fi
 
 fancy_echo "Updating Homebrew formulae ..."
 brew update
-brew doctor
+brew doctor || true
 brew outdated
 brew info --installed --json=v1
 brew bundle --file=- <<EOF
