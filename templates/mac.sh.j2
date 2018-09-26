@@ -14,6 +14,9 @@ trap 'ret=$?; test $ret -ne 0 && printf "failed\n\n" >&2; exit $ret' EXIT
 
 fancy_echo "Updating Homebrew formulae ..."
 brew update
+brew doctor
+brew outdated
+brew info --installed --json=v1
 brew bundle --file=- <<EOF
 {% include 'Brewfile' %}
 EOF

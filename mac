@@ -66,6 +66,9 @@ fi
 
 fancy_echo "Updating Homebrew formulae ..."
 brew update
+brew doctor
+brew outdated
+brew info --installed --json=v1
 brew bundle --file=- <<EOF
 tap 'homebrew/services'
 tap 'caskroom/cask'

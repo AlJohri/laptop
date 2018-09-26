@@ -6,7 +6,7 @@ install:
   - brew install shellcheck
 
 script:
-  - shellcheck mac -e SC2039
+  - shellcheck mac -e SC2039 -e SC1117
   - ./mac
 
 matrix:
