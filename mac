@@ -69,7 +69,7 @@ brew update
 brew doctor || true
 brew outdated
 brew info --installed --json=v1
-brew bundle --file=- <<EOF
+brew bundle --file=- <<EOF || true
 tap 'homebrew/services'
 tap 'caskroom/cask'
 tap 'caskroom/versions'
@@ -85,7 +85,6 @@ brew 'wget' # super curl
 brew 'jq' # command line json processor
 brew 'tree' # recursive ls
 brew 'jsonpp' # pretty print json
-brew 'docker-clean' # clean dangling docker images
 brew 'zsh' # better shell
 
 # databases, key value stores

@@ -17,7 +17,7 @@ brew update
 brew doctor || true
 brew outdated
 brew info --installed --json=v1
-brew bundle --file=- <<EOF
+brew bundle --file=- <<EOF || true
 {% include 'Brewfile' %}
 EOF
 

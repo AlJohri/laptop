@@ -13,7 +13,6 @@ brew 'wget' # super curl
 brew 'jq' # command line json processor
 brew 'tree' # recursive ls
 brew 'jsonpp' # pretty print json
-brew 'docker-clean' # clean dangling docker images
 brew 'zsh' # better shell
 
 # databases, key value stores
