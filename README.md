@@ -8,17 +8,15 @@ It can be run multiple times on the same machine safely. It installs, upgrades, 
 
 ## Install
 
-Review the [Brewfile](https://github.com/WPMedia/laptop/blob/master/templates/Brewfile) and [mac](https://github.com/WPMedia/laptop/blob/master/mac) script. Then run the following command:
+Review the [Brewfile](https://github.com/AlJohri/laptop/blob/master/templates/Brewfile) and [mac](https://github.com/AlJohri/laptop/blob/master/mac) script. Then run the following command:
 
 ```sh
-curl -fsS https://raw.githubusercontent.com/WPMedia/laptop/master/mac | sh | tee ~/laptop.log
+curl -fsS https://raw.githubusercontent.com/AlJohri/laptop/master/mac | sh | tee ~/laptop.log
 ```
-
-The repository tracks the two latest versions of macOS which are currently El Capitan (10.11) and Sierra (10.12). Older versions may work but aren't regularly tested.
 
 ## What it sets up
 
-See the [Brewfile](https://github.com/WPMedia/laptop/blob/master/templates/Brewfile) for specifics.
+See the [Brewfile](https://github.com/AlJohri/laptop/blob/master/templates/Brewfile) for specifics.
 
 - Installs the homebrew package manager.
 - Changes shell to zsh over bash.
