@@ -22,9 +22,6 @@ brew bundle --file=- <<EOF || true
 EOF
 
 {% include 'setup-zsh.sh.j2' %}
-{% include 'setup-ruby.sh.j2' %}
-{% include 'setup-python.sh.j2' %}
-{% include 'setup-node.sh.j2' %}
 {% include 'setup-postgres.sh.j2' %}
 
 fancy_echo "Done Configuring Laptop!"
