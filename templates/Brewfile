@@ -23,16 +23,10 @@ brew 'redis', restart_service: :changed
 
 # languages
 brew 'python'
-brew 'pyenv'
-
 brew 'node'
-brew 'node-build'
-brew 'nodenv'
-brew 'yarn' # alternative to npm
-
+brew 'yarn'
 brew 'ruby'
-brew 'ruby-build'
-brew 'rbenv'
+brew 'go'
 
 # dev gui
 cask 'iterm2' unless File.directory?("/Applications/iTerm.app")
