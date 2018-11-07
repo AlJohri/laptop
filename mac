@@ -69,7 +69,6 @@ brew bundle --file=- <<EOF || true
 tap 'homebrew/services'
 tap 'caskroom/cask'
 tap 'caskroom/versions'
-tap 'nodenv/nodenv'
 
 # general dependencies
 brew 'openssl'
@@ -92,15 +91,9 @@ brew 'redis', restart_service: :changed
 # languages
 brew 'python'
 brew 'pyenv'
-
-brew 'node'
-brew 'node-build'
-brew 'nodenv'
 brew 'yarn' # alternative to npm
-
+brew 'go'
 brew 'ruby'
-brew 'ruby-build'
-brew 'rbenv'
 
 # dev gui
 cask 'iterm2' unless File.directory?("/Applications/iTerm.app")
@@ -134,89 +127,7 @@ if [ ! -f "$HOME/.zshrc" ]; then
 fi
 
 fancy_echo "Done Configuring Zsh!"
-fancy_echo "Configuring Ruby ..."
 
-find_latest_ruby() {
-  rbenv install -l | grep -v - | tail -1 | sed -e 's/^ *//'
-}
-
-ruby_version="$(find_latest_ruby)"
-# shellcheck disable=SC2016
-append_to_zshrc 'eval "$(rbenv init - --no-rehash)"' 1
-eval "$(rbenv init -)"
-
-if ! rbenv versions | grep -Fq "$ruby_version"; then
-  if [ "$CI" == "true" ]; then
-    ruby_version="2.5.1" # hardcode latest from http://rubies.travis-ci.org/
-    wget "http://rubies.travis-ci.org/osx/10.12/x86_64/ruby-$ruby_version.tar.bz2"
-    tar -xf "ruby-$ruby_version.tar.bz2"
-    mv "ruby-$ruby_version" "$HOME/.rbenv/versions/$ruby_version"
-  else
-    RUBY_CONFIGURE_OPTS=--with-openssl-dir=/usr/local/opt/openssl rbenv install -s "$ruby_version"
-  fi
-fi
-
-rbenv global "$ruby_version"
-rbenv shell "$ruby_version"
-gem update --system
-gem_install_or_update 'bundler'
-number_of_cores=$(sysctl -n hw.ncpu)
-bundle config --global jobs $((number_of_cores - 1))
-
-fancy_echo "Done Configuring Ruby!"
-fancy_echo "Configuring Python ..."
-
-find_latest_python2() {
-  pyenv install -l | grep -v - | grep "  2." | tail -1 | sed -e 's/^ *//'
-}
-
-find_latest_python3() {
-  pyenv install -l | grep -v - | grep "  3." | tail -1 | sed -e 's/^ *//'
-}
-
-# shellcheck disable=SC2016
-append_to_zshrc 'eval "$(pyenv init - --no-rehash)"' 1
-eval "$(pyenv init -)"
-
-python2_version="$(find_latest_python2)"
-if ! pyenv versions | grep -Fq "$python2_version"; then
-  fancy_echo "Installing Python $python2_version ..."
-  CFLAGS=-I/usr/local/opt/openssl/include LDFLAGS=-L/usr/local/opt/openssl/lib pyenv install -s "$python2_version"
-fi
-pyenv shell "$python2_version"
-pip install -q pipenv envdir
-
-python3_version="$(find_latest_python3)"
-if ! pyenv versions | grep -Fq "$python3_version"; then
-  fancy_echo "Installing Python $python3_version ..."
-  CFLAGS=-I/usr/local/opt/openssl/include LDFLAGS=-L/usr/local/opt/openssl/lib pyenv install -s "$python3_version"
-fi
-pyenv shell "$python3_version"
-pip install -q pipenv envdir
-
-pyenv global "$python3_version:$python2_version"
-
-fancy_echo "Done Configuring Python!"
-fancy_echo "Configuring Node ..."
-
-find_latest_node() {
-  latest_major_version="8"
-  nodenv install -l | grep -v - | grep "  $latest_major_version." | tail -1 | sed -e 's/^ *//'
-}
-
-# shellcheck disable=SC2016
-append_to_zshrc 'eval "$(nodenv init - --no-rehash)"' 1
-eval "$(nodenv init -)"
-
-node_version="$(find_latest_node)"
-
-if ! nodenv versions | grep -Fq "$node_version"; then
-  nodenv install -v "$node_version"
-fi
-nodenv shell "$node_version"
-nodenv global "$node_version"
-
-fancy_echo "Done Configuring Node!"
 fancy_echo "Configuring Postgres ..."
 
 createuser --superuser --createdb --createrole --replication postgres || echo "postgres user already exists"
