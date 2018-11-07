@@ -61,10 +61,6 @@ if ! command -v brew >/dev/null; then
 fi
 
 fancy_echo "Updating Homebrew formulae ..."
-brew update
-brew doctor || true
-brew outdated
-brew info --installed --json=v1
 brew bundle --file=- <<EOF || true
 tap 'homebrew/services'
 tap 'caskroom/cask'
