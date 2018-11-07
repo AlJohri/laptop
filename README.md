@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/WPMedia/laptop.svg?branch=master)](https://travis-ci.org/WPMedia/laptop)
+[![Build Status](https://travis-ci.org/AlJohri/laptop.svg?branch=master)](https://travis-ci.org/AlJohri/laptop)
 
 # laptop
 
