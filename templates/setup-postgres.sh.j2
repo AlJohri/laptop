@@ -2,3 +2,5 @@ fancy_echo "Configuring Postgres ..."
 
 createuser --superuser --createdb --createrole --replication postgres || echo "postgres user already exists"
 createuser --superuser --createdb --createrole --replication root || echo "root user already exists"
+
+fancy_echo "Done Configuring Postgres!"

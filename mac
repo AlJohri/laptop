@@ -75,7 +75,6 @@ brew 'awscli' # aws command line tools
 brew 'wget' # super curl
 brew 'jq' # command line json processor
 brew 'tree' # recursive ls
-brew 'jsonpp' # pretty print json
 brew 'zsh' # better shell
 
 # databases, key value stores
@@ -86,9 +85,8 @@ brew 'redis', restart_service: :changed
 
 # languages
 brew 'python'
-brew 'pyenv'
-brew 'yarn' # alternative to npm
-brew 'go'
+brew 'node'
+brew 'yarn'
 brew 'ruby'
 
 # dev gui
@@ -123,10 +121,11 @@ if [ ! -f "$HOME/.zshrc" ]; then
 fi
 
 fancy_echo "Done Configuring Zsh!"
-
 fancy_echo "Configuring Postgres ..."
 
 createuser --superuser --createdb --createrole --replication postgres || echo "postgres user already exists"
 createuser --superuser --createdb --createrole --replication root || echo "root user already exists"
+
+fancy_echo "Done Configuring Postgres!"
 
 fancy_echo "Done Configuring Laptop!"

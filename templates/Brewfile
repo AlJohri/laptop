@@ -1,7 +1,6 @@
 tap 'homebrew/services'
 tap 'caskroom/cask'
 tap 'caskroom/versions'
-tap 'nodenv/nodenv'
 
 # general dependencies
 brew 'openssl'
@@ -12,7 +11,6 @@ brew 'awscli' # aws command line tools
 brew 'wget' # super curl
 brew 'jq' # command line json processor
 brew 'tree' # recursive ls
-brew 'jsonpp' # pretty print json
 brew 'zsh' # better shell
 
 # databases, key value stores
@@ -26,7 +24,6 @@ brew 'python'
 brew 'node'
 brew 'yarn'
 brew 'ruby'
-brew 'go'
 
 # dev gui
 cask 'iterm2' unless File.directory?("/Applications/iTerm.app")
