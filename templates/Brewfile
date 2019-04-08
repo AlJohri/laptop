@@ -19,6 +19,7 @@ brew 'mongodb', restart_service: :changed
 brew 'mysql', restart_service: :changed
 brew 'postgresql', restart_service: :changed
 brew 'redis', restart_service: :changed
+brew 'flyway' # database migrations
 
 # languages
 brew 'python'
