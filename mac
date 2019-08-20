@@ -92,7 +92,7 @@ brew 'flyway' # database migrations
 # python + python tools
 brew 'python'
 brew 'pipenv'
-brwe 'pipx'
+brew 'pipx'
 
 # other languages
 brew 'node'
