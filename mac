@@ -71,12 +71,16 @@ brew 'openssl'
 cask 'java' unless system '/usr/libexec/java_home --failfast > /dev/null'
 
 # cli tools
+brew 'mas' # mac app store installer
+brew 'hub' # git
 brew 'awscli' # aws command line tools
 brew 'awslogs' # view aws cloudwatch logs from CLI
 brew 'wget' # super curl
 brew 'jq' # command line json processor
 brew 'tree' # recursive ls
 brew 'zsh' # better shell
+brew 'pre-commit' # for git commit hooks
+brew 'ripgrep' # search through text files fast
 
 # databases, key value stores
 brew 'mongodb', restart_service: :changed
@@ -85,23 +89,33 @@ brew 'postgresql', restart_service: :changed
 brew 'redis', restart_service: :changed
 brew 'flyway' # database migrations
 
-# languages
+# python + python tools
 brew 'python'
 brew 'pipenv'
+brwe 'pipx'
+
+# other languages
 brew 'node'
 brew 'yarn'
 brew 'ruby'
 
-# dev gui
+# dev cask
 cask 'iterm2' unless File.directory?("/Applications/iTerm.app")
 cask 'docker' unless File.directory?("/Applications/Docker.app")
 cask 'sublime-text' unless File.directory?("/Applications/Sublime Text.app")
 cask 'visual-studio-code' unless File.directory?("/Applications/Visual Studio Code.app.app")
+cask 'r-app'
+cask 'rstudio'
+cask 'iterative/dvc/dvc'
+cask '1password-cli'
 
-# non-dev gui
+# non-dev cask
 cask 'slack' unless File.directory?("/Applications/Slack.app")
 cask 'google-chrome-beta' unless File.directory?("/Applications/Google Chrome.app")
 cask 'keepingyouawake' unless File.directory?("/Applications/KeepingYouAwake.app")
+
+# mac apps
+mas '1Password 7, id: 1333542190
 EOF
 
 fancy_echo "Configuring Zsh ..."
