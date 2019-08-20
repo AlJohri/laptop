@@ -4,7 +4,7 @@ tap 'caskroom/versions'
 
 # general dependencies
 brew 'openssl'
-cask 'java' unless system '/usr/libexec/java_home --failfast > /dev/null'
+cask 'adoptopenjdk8' unless system '/usr/libexec/java_home --failfast > /dev/null'
 
 # cli tools
 brew 'mas' # mac app store installer
