@@ -104,7 +104,7 @@ cask 'iterm2' unless File.directory?("/Applications/iTerm.app")
 cask 'docker' unless File.directory?("/Applications/Docker.app")
 cask 'sublime-text' unless File.directory?("/Applications/Sublime Text.app")
 cask 'visual-studio-code' unless File.directory?("/Applications/Visual Studio Code.app.app")
-cask 'r-app'
+cask 'r'
 cask 'rstudio'
 cask 'iterative/dvc/dvc'
 cask '1password-cli'
