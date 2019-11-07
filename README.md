@@ -35,5 +35,5 @@ brew install shellcheck
 make
 ```
 
-Syntax Highlighting for `.sh.j2` files: https://atom.io/packages/atom-jinja2
+Syntax Highlighting for `.sh.j2` files: https://marketplace.visualstudio.com/items?itemName=samuelcolvin.jinjahtml
 
